@@ -6,7 +6,7 @@ import '../controllers/home_controller.dart';
 
 // ignore: must_be_immutable
 class HomeView extends GetView<HomeController> {
-  HomeView({super.key});
+  const HomeView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +54,7 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: "${controller.name.value}",
+                                  text: controller.name.value,
                                   style: TextStyle(
                                     color: Colors.red,
                                     fontSize: 15,
@@ -159,7 +159,7 @@ class HomeView extends GetView<HomeController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "${item.title}",
+                                    item.title,
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w600,

@@ -6,7 +6,7 @@ import '../controllers/navbar_controller.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class NavbarView extends GetView<NavbarController> {
-  NavbarView({super.key});
+  const NavbarView({super.key});
 
   @override
   Widget build(BuildContext context) {
