@@ -12,7 +12,7 @@ class NavbarController extends GetxController {
   List<Widget> get pages => [SettingView(), HomeView(), ProfileView()];
 
   // List<String> get titles => ['Home', 'Profile', 'Settings'];
-
+  
   // Method untuk mengubah tab
   void changeTab(int index) {
     currentIndex.value = index;

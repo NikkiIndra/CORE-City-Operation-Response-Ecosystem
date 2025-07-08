@@ -1,13 +1,14 @@
+import 'package:core/app/data/Service/ThemeController.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
 
 // ignore: must_be_immutable
 class HomeView extends GetView<HomeController> {
-  const HomeView({super.key});
+  HomeView({super.key});
   @override
+  final themeController = Get.find<ThemeController>();
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -23,17 +24,12 @@ class HomeView extends GetView<HomeController> {
               children: [
                 Row(
                   children: [
-                    Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(50),
-                        image: DecorationImage(
-                          image: AssetImage("assets/slide_1.png"),
-                          fit: BoxFit.cover,
-                          repeat: ImageRepeat.repeat,
-                        ),
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundColor: themeController.containerColor,
+                      child: CircleAvatar(
+                        radius: 28,
+                        backgroundImage: AssetImage("assets/demo/slide_1.png"),
                       ),
                     ),
 
@@ -48,7 +44,10 @@ class HomeView extends GetView<HomeController> {
                                 TextSpan(
                                   text: "Selamat Datang ",
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color:
+                                        Theme.of(
+                                          context,
+                                        ).textTheme.headlineMedium!.color!,
                                     fontSize: 15,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -66,17 +65,27 @@ class HomeView extends GetView<HomeController> {
                           ),
                           Text(
                             "Semoga kamu Ceria Hari Ini",
-                            style: TextStyle(fontSize: 12),
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Theme.of(context)
+                                  .primaryTextTheme
+                                  .labelSmall!
+                                  .color!
+                                  .withOpacity(0.8),
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 25),
-                Text(
-                  "Fiture Utama",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                SizedBox(height: 30),
+                Center(
+                  child: Text(
+                    "Fiture Utama",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  ),
                 ),
                 SizedBox(height: 15),
                 GridView.builder(
@@ -97,9 +106,18 @@ class HomeView extends GetView<HomeController> {
                       child: Container(
                         height: 100,
                         width: 100,
+
                         decoration: BoxDecoration(
+                          color: themeController.containerColor,
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.black, width: 0.5),
+                          border: Border.all(color: Colors.black54, width: 0.5),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              blurRadius: 20,
+                              offset: Offset(0, 2),
+                            ),
+                          ],
                         ),
                         child: Center(
                           child: Column(
@@ -115,10 +133,12 @@ class HomeView extends GetView<HomeController> {
                     );
                   },
                 ),
-                SizedBox(height: 20),
-                Text(
-                  "Info Terbaru",
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                SizedBox(height: 30),
+                Center(
+                  child: Text(
+                    "Info Terbaru",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  ),
                 ),
 
                 Obx(() {
@@ -143,15 +163,32 @@ class HomeView extends GetView<HomeController> {
                       final item = controller.newsList[index]; // ambil item
 
                       return Container(
-                        margin: EdgeInsets.only(bottom: 12), // jarak antar item
+                        margin: EdgeInsets.symmetric(
+                          vertical: 8,
+                          horizontal: 5,
+                        ), // jarak antar item
                         // height: 100,
                         decoration: BoxDecoration(
-                          color: Colors.transparent,
+                          color: themeController.containerColor,
                           border: Border.all(color: Colors.black, width: 0.5),
                           borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              blurRadius: 20,
+                              offset: Offset(0, 2),
+                            ),
+                          ],
                         ),
-                        padding: EdgeInsets.all(8), // spasi dalam konten
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 10,
+                        ), // spasi dalam konten
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          spacing: 8,
+                          mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
                               child: Column(

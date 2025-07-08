@@ -44,7 +44,21 @@ class NavbarView extends GetView<NavbarController> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             tabBackgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
             color: Theme.of(context).iconTheme.color,
-            activeColor: Colors.teal,
+            activeColor: Theme.of(context).primaryColor,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            tabBorderRadius: 15,
+            tabShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                blurRadius: 20,
+                offset: Offset(0, 2),
+              ),
+            ],
+            rippleColor: Theme.of(context).primaryColor.withOpacity(0.2),
+            hoverColor: Theme.of(context).primaryColor.withOpacity(0.1),
+            haptic: true,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+
             tabs: const [
               GButton(icon: Icons.settings, text: 'Pengaturan'),
               GButton(icon: Icons.home, text: 'Beranda'),

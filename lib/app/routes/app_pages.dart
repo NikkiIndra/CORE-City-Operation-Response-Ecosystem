@@ -38,7 +38,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILE,
-      page: () => const ProfileView(),
+      page: () => ProfileView(),
       binding: ProfileBinding(),
     ),
     GetPage(
@@ -58,7 +58,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SETTING,
-      page: () => const SettingView(),
+      page: () => SettingView(),
       binding: SettingBinding(),
     ),
     GetPage(
