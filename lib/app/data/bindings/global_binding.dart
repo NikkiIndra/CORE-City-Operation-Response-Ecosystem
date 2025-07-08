@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../modules/PAGE/home/controllers/home_controller.dart';
+import '../../modules/pages/home/controllers/home_controller.dart';
 import '../Service/ThemeController.dart';
 
 class GlobalBindings extends Bindings{

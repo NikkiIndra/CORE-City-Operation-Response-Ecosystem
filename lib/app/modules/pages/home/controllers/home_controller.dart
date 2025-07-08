@@ -1,12 +1,12 @@
-import 'package:core/app/modules/FITURE/bus_traking/views/bus_traking_view.dart';
-import 'package:core/app/modules/FITURE/report/views/report_view.dart';
+import 'package:core/app/modules/features/bus_traker/views/bus_traking_view.dart';
+import 'package:core/app/modules/features/report/views/report_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../../../data/models/news_item.dart';
-import '../../../FITURE/emergency/views/emergency_view.dart';
-import '../../../FITURE/important_contacts/views/important_contacts_view.dart';
+import '../../../features/emergency/views/emergency_view.dart';
+import '../../../features/important_contacts/views/important_contacts_view.dart';
 
 class HomeController extends GetxController {
 

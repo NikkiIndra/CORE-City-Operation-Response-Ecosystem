@@ -1,27 +1,27 @@
 import 'package:get/get.dart';
 
 import '../data/bindings/global_binding.dart';
-import '../modules/FITURE/bus_traking/bindings/bus_traking_binding.dart';
-import '../modules/FITURE/bus_traking/views/bus_traking_view.dart';
-import '../modules/FITURE/emergency/bindings/emergency_binding.dart';
-import '../modules/FITURE/emergency/views/emergency_view.dart';
-import '../modules/PAGE/home/views/home_view.dart';
-import '../modules/FITURE/important_contacts/bindings/important_contacts_binding.dart';
-import '../modules/FITURE/important_contacts/views/important_contacts_view.dart';
-import '../modules/PAGE/login/bindings/login_binding.dart';
-import '../modules/PAGE/login/views/login_view.dart';
+import '../modules/features/bus_traker/bindings/bus_traking_binding.dart';
+import '../modules/features/bus_traker/views/bus_traking_view.dart';
+import '../modules/features/emergency/bindings/emergency_binding.dart';
+import '../modules/features/emergency/views/emergency_view.dart';
+import '../modules/pages/home/views/home_view.dart';
+import '../modules/features/important_contacts/bindings/important_contacts_binding.dart';
+import '../modules/features/important_contacts/views/important_contacts_view.dart';
+import '../modules/pages/login/bindings/login_binding.dart';
+import '../modules/pages/login/views/login_view.dart';
 import '../modules/navbar/bindings/navbar_binding.dart';
 import '../modules/navbar/views/navbar_view.dart';
-import '../modules/PAGE/onboarding/bindings/onboarding_binding.dart';
-import '../modules/PAGE/onboarding/views/onboarding_view.dart';
-import '../modules/PAGE/profile/bindings/profile_binding.dart';
-import '../modules/PAGE/profile/views/profile_view.dart';
-import '../modules/PAGE/register/bindings/register_binding.dart';
-import '../modules/PAGE/register/views/register_view.dart';
-import '../modules/FITURE/report/bindings/report_binding.dart';
-import '../modules/FITURE/report/views/report_view.dart';
-import '../modules/PAGE/setting/bindings/setting_binding.dart';
-import '../modules/PAGE/setting/views/setting_view.dart';
+import '../modules/pages/onboarding/bindings/onboarding_binding.dart';
+import '../modules/pages/onboarding/views/onboarding_view.dart';
+import '../modules/pages/profile/bindings/profile_binding.dart';
+import '../modules/pages/profile/views/profile_view.dart';
+import '../modules/pages/register/bindings/register_binding.dart';
+import '../modules/pages/register/views/register_view.dart';
+import '../modules/features/report/bindings/report_binding.dart';
+import '../modules/features/report/views/report_view.dart';
+import '../modules/pages/setting/bindings/setting_binding.dart';
+import '../modules/pages/setting/views/setting_view.dart';
 
 part 'app_routes.dart';
 

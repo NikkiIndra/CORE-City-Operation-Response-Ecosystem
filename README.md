@@ -3,16 +3,16 @@
 ## 📱 the name of this application is CORE (City Operation & Response Ecosystem)
 
 #### This app has some excellent features, namely 
-## 🚀 Fitur Utama
-#### 🔔 Tombol Darurat untuk panggilan cepat
+## 🚀 Key Features
+#### 🔔 Emergency Button for quick call
 
-#### 🗺️ Pelacakan Bus Real-Time (GPS)
+#### 🗺️ Real-Time Bus Tracking (GPS)
 
-#### 🧾 Laporan Kejadian (dengan foto & lokasi)
+#### 🧾 Incident Report (with photos & location)
 
-#### 📞 Kontak Penting Kota
+#### 📞 Important City Contacts
 
-#### 📢 Notifikasi Broadcast dari Admin
+#### 📢 Broadcast Notifications from Admin
 
 #### okh I will discuss one by one briefly the features above
 
@@ -42,5 +42,22 @@
 
 ![Demo Apps](assets/demo/demo1.gif)
 
+
+## Struktur Folder
+#### lib/
+#### ├── data/
+#### ├── moduls/
+#### │   ├── navbar/
+#### │   ├── pages/
+#### │   └── features/
+#### │        ├── report/
+#### │        ├── bus_tracker/
+#### │        ├── importan_contacts
+#### │        └── emergency
+#### ├── routes/
+#### ├── my_app.dart
+#### ├── splash_screen.dart
+#### └── main.dart
+ 
 
 ## Thank U Gusy 👌

@@ -1,9 +1,9 @@
-import 'package:core/app/modules/PAGE/home/views/home_view.dart';
-import 'package:core/app/modules/PAGE/profile/views/profile_view.dart';
+import 'package:core/app/modules/pages/home/views/home_view.dart';
+import 'package:core/app/modules/pages/profile/views/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../PAGE/setting/views/setting_view.dart';
+import '../../pages/setting/views/setting_view.dart';
 
 class NavbarController extends GetxController {
   final RxInt currentIndex = 1.obs;
