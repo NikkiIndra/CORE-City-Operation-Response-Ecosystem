@@ -69,7 +69,7 @@ class AppPages {
 
     GetPage(
       name: _Paths.BUS_TRAKING,
-      page: () => const BusTrakingView(),
+      page: () => BusTrakingView(),
       binding: BusTrakingBinding(),
     ),
     GetPage(

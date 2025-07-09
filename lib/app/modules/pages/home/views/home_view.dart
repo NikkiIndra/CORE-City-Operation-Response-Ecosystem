@@ -32,7 +32,6 @@ class HomeView extends GetView<HomeController> {
                         backgroundImage: AssetImage("assets/demo/slide_1.png"),
                       ),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: Column(
@@ -96,8 +95,8 @@ class HomeView extends GetView<HomeController> {
                   physics: NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 25,
-                    mainAxisSpacing: 25,
+                    crossAxisSpacing: 15,
+                    mainAxisSpacing: 15,
                     childAspectRatio: 1,
                   ),
                   itemBuilder: (context, index) {
@@ -106,16 +105,14 @@ class HomeView extends GetView<HomeController> {
                       child: Container(
                         height: 100,
                         width: 100,
-
                         decoration: BoxDecoration(
                           color: themeController.containerColor,
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.black54, width: 0.5),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.2),
-                              blurRadius: 20,
-                              offset: Offset(0, 2),
+                              blurRadius: 10,
+                              offset: Offset(2, 1),
                             ),
                           ],
                         ),
@@ -170,13 +167,13 @@ class HomeView extends GetView<HomeController> {
                         // height: 100,
                         decoration: BoxDecoration(
                           color: themeController.containerColor,
-                          border: Border.all(color: Colors.black, width: 0.5),
                           borderRadius: BorderRadius.circular(12),
+
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.2),
-                              blurRadius: 20,
-                              offset: Offset(0, 2),
+                              blurRadius: 10,
+                              offset: Offset(2, 1),
                             ),
                           ],
                         ),

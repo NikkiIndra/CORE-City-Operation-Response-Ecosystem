@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     final themeController = Get.find<ThemeController>();
 
     return GetMaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       title: "SmartCity",
       initialBinding: GlobalBindings(),
       theme: AppThemes.lightTheme,
