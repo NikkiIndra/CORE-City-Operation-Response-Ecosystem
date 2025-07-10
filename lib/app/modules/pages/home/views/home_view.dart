@@ -9,6 +9,7 @@ class HomeView extends GetView<HomeController> {
   HomeView({super.key});
   @override
   final themeController = Get.find<ThemeController>();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -29,7 +30,7 @@ class HomeView extends GetView<HomeController> {
                       backgroundColor: themeController.containerColor,
                       child: CircleAvatar(
                         radius: 28,
-                        backgroundImage: AssetImage("assets/demo/slide_1.png"),
+                        backgroundImage: AssetImage("assets/slide_1.png"),
                       ),
                     ),
                     Padding(

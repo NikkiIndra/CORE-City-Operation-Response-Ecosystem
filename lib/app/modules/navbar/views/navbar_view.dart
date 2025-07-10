@@ -1,3 +1,4 @@
+import 'package:core/app/data/Service/ThemeController.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -6,8 +7,9 @@ import '../controllers/navbar_controller.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class NavbarView extends GetView<NavbarController> {
-  const NavbarView({super.key});
+  NavbarView({super.key});
 
+  final controllerTheme = Get.find<ThemeController>();
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -44,11 +46,11 @@ class NavbarView extends GetView<NavbarController> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             tabBackgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
             color: Theme.of(context).iconTheme.color,
-            activeColor: Colors.black,
+            activeColor: controllerTheme.isDark ? Colors.white : Colors.black,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             tabBorderRadius: 15,
             tabActiveBorder: Border.all(
-              color: Colors.black.withOpacity(0.4),
+              color: controllerTheme.isDark ? Colors.white : Colors.black,
               width: 1,
             ),
             rippleColor: Theme.of(context).primaryColor.withOpacity(0.2),

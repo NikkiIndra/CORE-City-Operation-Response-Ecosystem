@@ -17,7 +17,7 @@ class OnboardingView extends GetView<OnboardingController> {
         totalPage: 3,
         speed: 1.8,
         imageVerticalOffset: 20,
-        headerBackgroundColor: Colors.black,
+        headerBackgroundColor: Colors.white,
         finishButtonText: 'Register',
         finishButtonStyle: FinishButtonStyle(
           backgroundColor: Colors.black,
@@ -40,18 +40,32 @@ class OnboardingView extends GetView<OnboardingController> {
           ),
           clipBehavior: Clip.none,
           decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.rectangle,
+            // boxShadow: [
             borderRadius: BorderRadius.circular(8),
-
-            color: Colors.transparent,
-            border: Border.fromBorderSide(BorderSide(color: Colors.black)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                blurRadius: 3,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+            // border: Border.fromBorderSide(BorderSide(color: Colors.black)),
           ),
           child: Text("Skip", style: TextStyle(color: Colors.black)),
         ),
         // hasSkip: true,
         // hasFloatingButton: true,
         trailing: ElevatedButton.icon(
-          icon: Icon(Icons.login),
-          label: Text("Login"),
+          icon: Icon(Icons.login, color: Colors.black),
+          label: Text("Login", style: TextStyle(color: Colors.black)),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
           onPressed: () => Get.offAllNamed(Routes.NAVBAR),
         ),
 

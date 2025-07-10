@@ -6,11 +6,11 @@ class TextRichWidget extends StatelessWidget {
   final TextStyle? defaultStyle;
 
   const TextRichWidget({
-    Key? key,
+    super.key,
     required this.children,
     this.textAlign = TextAlign.start,
     this.defaultStyle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
