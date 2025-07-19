@@ -1,13 +1,13 @@
+import 'package:core/app/modules/pages/authcontroller/authC.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../data/widgets/loading_screen.dart';
 import '../../../../routes/app_pages.dart';
 import '../controllers/profile_controller.dart';
 
-class ProfileView extends StatelessWidget {
+class ProfileView extends GetView<ProfileController> {
   ProfileView({super.key});
-
-  final controller = Get.find<ProfileController> ();
+  final authC = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -32,23 +32,27 @@ class ProfileView extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             // Nama dan Email
-            // Text(
-              // user?['namaKtp'] ?? '',
-              // style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            // ),
-            // Text(
-              // user?['email'] ?? '',
-              // style: TextStyle(color: Colors.grey),
-            // ),
-            const SizedBox(height: 20),
+            Obx(() {
+              final user = authC.currentUser.value;
+              return Text(
+                user?.fullname ?? "Nama Tidak Ditemukan",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              );
+            }),
+            Obx(() {
+              final user = authC.currentUser.value;
+              return Text(
+                user?.email ?? "Email Tidak Ditemukan",
+                style: TextStyle(color: Colors.grey),
+              );
+            }),
 
             // Tombol Edit Profil
             SizedBox(
               width: 150,
               child: ElevatedButton(
-                onPressed: () {
-                  // Aksi edit
-                },
+                onPressed: () => controller.verifyPassword(),
+
                 child: const Text("Edit Profil"),
               ),
             ),

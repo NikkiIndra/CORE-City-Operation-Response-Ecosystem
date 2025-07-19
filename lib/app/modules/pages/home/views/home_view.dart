@@ -7,7 +7,6 @@ import '../controllers/home_controller.dart';
 // ignore: must_be_immutable
 class HomeView extends GetView<HomeController> {
   HomeView({super.key});
-  @override
   final themeController = Get.find<ThemeController>();
   @override
   Widget build(BuildContext context) {
@@ -38,31 +37,37 @@ class HomeView extends GetView<HomeController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: "Selamat Datang ",
-                                  style: TextStyle(
-                                    color:
-                                        Theme.of(
-                                          context,
-                                        ).textTheme.headlineMedium!.color!,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
+                          Obx(() {
+                            final user = controller.user.value;
+                            return Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "Selamat Datang ",
+                                    style: TextStyle(
+                                      color:
+                                          Theme.of(
+                                            context,
+                                          ).textTheme.headlineMedium!.color!,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
-                                ),
-                                TextSpan(
-                                  text: controller.name.value,
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
+                                  TextSpan(
+                                    text: user?.fullname ?? "User",
+                                    style: TextStyle(
+                                      color: Colors.grey.shade700,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
+                                ],
+                              ),
+                            );
+                          }),
+
                           Text(
                             "Semoga kamu Ceria Hari Ini",
                             style: TextStyle(
@@ -102,7 +107,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () => Get.to(() => controller.widgetFiture[index]),
+                      onTap: () => Get.toNamed(controller.widgetFiture[index]),
                       child: Container(
                         height: 100,
                         width: 100,

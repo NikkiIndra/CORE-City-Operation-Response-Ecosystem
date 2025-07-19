@@ -30,9 +30,11 @@ class _SplashScreenState extends State<SplashScreen> {
       Get.offAllNamed(Routes.ONBOARDING); // arahkan ke onboarding
     } else {
       if (isLoggedIn) {
-        // Get.offAllNamed(Routes.navbar); // arahkan ke navbar
+        Get.offAllNamed(Routes.NAVBAR); // arahkan ke navbar
       } else {
-        Get.offAllNamed(Routes.ONBOARDING); // arahkan ke login harusnya ke register untuk percobaan langsung ke home aja 
+        Get.offAllNamed(
+          Routes.ONBOARDING,
+        ); // arahkan ke login harusnya ke register untuk percobaan langsung ke home aja
       }
     }
   }

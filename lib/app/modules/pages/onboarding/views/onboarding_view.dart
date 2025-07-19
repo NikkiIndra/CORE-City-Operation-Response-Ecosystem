@@ -23,7 +23,7 @@ class OnboardingView extends GetView<OnboardingController> {
           backgroundColor: Colors.black,
           elevation: 13,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
           disabledElevation: 23,
           focusColor: Colors.black,
@@ -31,42 +31,40 @@ class OnboardingView extends GetView<OnboardingController> {
         onFinish: () {
           Get.offAllNamed(Routes.REGISTER);
         },
+        // Tombol Skip tanpa shadow
         skipTextButton: Container(
           padding: const EdgeInsets.only(
-            right: 16,
+            right: 20,
             top: 3,
-            left: 16,
+            left: 20,
             bottom: 5,
           ),
-          clipBehavior: Clip.none,
           decoration: BoxDecoration(
-            color: Colors.white,
+            border: Border.all(color: Colors.black),
             shape: BoxShape.rectangle,
-            // boxShadow: [
+            color:
+                Colors.transparent, // atau Colors.white jika perlu background
             borderRadius: BorderRadius.circular(8),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                blurRadius: 3,
-                offset: Offset(0, 3), // changes position of shadow
-              ),
-            ],
-            // border: Border.fromBorderSide(BorderSide(color: Colors.black)),
+            // boxShadow dihapus
           ),
           child: Text("Skip", style: TextStyle(color: Colors.black)),
         ),
-        // hasSkip: true,
-        // hasFloatingButton: true,
+
+        // Tombol Login tanpa shadow
         trailing: ElevatedButton.icon(
           icon: Icon(Icons.login, color: Colors.black),
           label: Text("Login", style: TextStyle(color: Colors.black)),
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
+            elevation: 0, // hilangkan bayangan
+            backgroundColor: Colors.transparent, // background transparan
+            shadowColor: Colors.transparent, // hilangkan shadow efek
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8), // hilangkan border radius
+              // side: BorderSide.none, // hilangkan border
             ),
+            padding: EdgeInsets.only(left: 12, right: 12), // jika mau rapat
           ),
-          onPressed: () => Get.offAllNamed(Routes.NAVBAR),
+          onPressed: () => Get.offAllNamed(Routes.LOGIN),
         ),
 
         background: [

@@ -1,11 +1,13 @@
 import 'package:get/get.dart';
 
 class EmergencyController extends GetxController {
-  //TODO: Implement EmergencyController
+  var isLoading = true.obs;
 
-  final count = 0.obs;
-
-
-
-  void increment() => count.value++;
+  @override
+  void onInit() {
+    super.onInit();
+    Future.delayed(Duration(microseconds: 500), () {
+      isLoading.value = false;
+    });
+  }
 }

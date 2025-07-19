@@ -1,28 +1,40 @@
-import 'package:core/app/modules/features/bus_traker/views/bus_traking_view.dart';
-import 'package:core/app/modules/features/report/views/report_view.dart';
+import 'dart:convert';
+
+import 'package:core/app/routes/app_pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:get_storage/get_storage.dart' show GetStorage;
 
 import '../../../../data/models/news_item.dart';
-import '../../../features/emergency/views/emergency_view.dart';
-import '../../../features/important_contacts/views/important_contacts_view.dart';
+import '../../../../data/models/profile_model.dart';
 
 class HomeController extends GetxController {
-
   var newsList = <NewsModel>[].obs;
-  final box = GetStorage();
-  final count = 0.obs;
-  final name = ''.obs;
   var isLoading = RxBool(false);
   var isBookmarked = false.obs;
   var isShared = false.obs;
   var isMore = false.obs;
+  Rx<ProfileModel> user = ProfileModel(fullname: '', email: '', pass: '').obs;
 
   @override
   void onInit() {
     super.onInit();
-    name.value = box.read('namaKtp') ?? '';
+    final raw = GetStorage().read("current_user");
+    if (raw != null) {
+      Map<String, dynamic> data;
+
+      if (raw is String) {
+        // Kalau ternyata disimpan dalam bentuk JSON string
+        data = jsonDecode(raw);
+      } else if (raw is Map) {
+        data = Map<String, dynamic>.from(raw);
+      } else {
+        print("Format tidak didukung: $raw");
+        return;
+      }
+
+      user.value = ProfileModel.fromJson(data);
+    }
     loadNews();
   }
 
@@ -42,11 +54,11 @@ class HomeController extends GetxController {
     CupertinoIcons.exclamationmark_triangle_fill,
   ];
 
-  List <Widget> widgetFiture = [
-    BusTrakingView(),
-    ReportView(),
-    ImportantContactsView(),
-    EmergencyView(),
+  List<String> widgetFiture = [
+    Routes.BUS_TRAKING,
+    Routes.REPORT,
+    Routes.IMPORTANT_CONTACTS,
+    Routes.EMERGENCY,
   ];
 
   // @override
@@ -100,9 +112,6 @@ class HomeController extends GetxController {
         postedOn: DateTime.now().subtract(Duration(days: 1, hours: 3)),
       ),
     ];
-
     isLoading.value = false;
   }
-
-  void increment() => count.value++;
 }

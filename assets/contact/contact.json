@@ -1,0 +1,230 @@
+[
+  {
+    "name": "Polisi (Nomor Darurat Nasional)",
+    "category": "Polisi",
+    "phone": "110",
+    "location": ""
+  },
+  {
+    "name": "Polres Cirebon Kota",
+    "category": "Polisi",
+    "phone": "(0231)205179",
+    "location": "Cirebon"
+  },
+  {
+    "name": "POLDA D.I.Yogyakarta",
+    "phone": "(0274) 563494",
+    "category": "Polisi",
+    "location": "Yogyakarta"
+  },
+  {
+    "name": "Pemadam Kebakaran (Nomor Darurat Nasional)",
+    "category": "Pemadam",
+    "phone": "113",
+    "location": ""
+  },
+  {
+    "name": "Pos Damkar Sumber Kab. Cirebon",
+    "category": "Pemadam Kebakaran",
+    "phone": "0231-111111",
+    "location": "Sumber, Kecamatan Sumber, Kabupaten Cirebon, Jawa Barat 45611"
+  },
+  {
+    "name": "Pos Jaga Damkar Weru",
+    "category": "Pemadam Kebakaran",
+    "phone": "0231-222222",
+    "location": "Weru Kidul, Kecamatan Weru, Kabupaten Cirebon, Jawa Barat 45154"
+  },
+  {
+    "name": "Pos Damkar Lemahabang Kab Cirebon",
+    "category": "Pemadam Kebakaran",
+    "phone": "0231-333333",
+    "location": "Cipeujeuh Wetan, Kecamatan Lemahabang, Kabupaten Cirebon, Jawa Barat 45183"
+  },
+  {
+    "name": "Pemadam Kebakaran Pos Jaga Palimanan",
+    "category": "Pemadam Kebakaran",
+    "phone": "0231-444444",
+    "location": "Palimanan Timur, Kecamatan Palimanan, Kabupaten Cirebon, Jawa Barat 45161"
+  },
+  {
+    "name": "Pos Jaga Damkar Gunungjati",
+    "category": "Pemadam Kebakaran",
+    "phone": "0231-555555",
+    "location": "Grogol, Kecamatan Gunungjati, Kabupaten Cirebon, Jawa Barat 45151"
+  },
+  {
+    "name": "Dinas Pemadam Kebakaran Arjawinangun",
+    "category": "Pemadam Kebakaran",
+    "phone": "0231-666666",
+    "location": "Arjawinangun, Kecamatan Arjawinangun, Kabupaten Cirebon, Jawa Barat 45162"
+  },
+  {
+    "name": "Pemadam Kebakaran Ciledug",
+    "category": "Pemadam Kebakaran",
+    "phone": "0231-777777",
+    "location": "Ciledug Kulon, Kecamatan Ciledug, Kabupaten Cirebon, Jawa Barat 45188"
+  },
+  {
+    "name": "Pos Jaga Cikulak Disdamkar Kab. Cirebon",
+    "category": "Pemadam Kebakaran",
+    "phone": "0231-888888",
+    "location": "Cikulak, Kecamatan Waled, Kabupaten Cirebon, Jawa Barat 45187"
+  },
+  {
+    "name": "Pos Jaga Damkar Losari",
+    "category": "Pemadam Kebakaran",
+    "phone": "0231-999999",
+    "location": "Losari Kidul, Kecamatan Losari, Kabupaten Cirebon, Jawa Barat 45192"
+  },
+  {
+    "name": "RS Jantung Hasna Medika",
+    "category": "Rumah Sakit",
+    "phone": "0231-123456",
+    "location": "Jl. Raden Gilap No.8, Desa Palimanan Timur, Kecamatan Palimanan, Kabupaten Cirebon, Jawa Barat 45161"
+  },
+  {
+    "name": "RS Pertamina Cirebon",
+    "category": "Rumah Sakit",
+    "phone": "0231-234567",
+    "location": "Jl. Patra Raya Klayan Cirebon No.1, Desa Klayan, Kecamatan Gunungjati, Kabupaten Cirebon, Jawa Barat 45151"
+  },
+  {
+    "name": "RS Pasar Minggu Cirebon",
+    "category": "Rumah Sakit",
+    "phone": "0231-345678",
+    "location": "Jl. Ki Ageng Tepak, Desa Semplo, Kecamatan Palimanan, Kabupaten Cirebon, Jawa Barat 45161"
+  },
+  {
+    "name": "RS Umum Permata Cirebon",
+    "category": "Rumah Sakit",
+    "phone": "0231-456789",
+    "location": "Jl. Tuparev No.117, Desa Pilangsari, Kecamatan Kedawung, Kabupaten Cirebon, Jawa Barat 45153"
+  },
+  {
+    "name": "RS Umum Daerah Arjawinangun",
+    "category": "Rumah Sakit",
+    "phone": "0231-567890",
+    "location": "Jl. By Pass Palimanan - Jakarta KM 2 No.1, Desa Kebonturi, Kecamatan Arjawinangun, Kabupaten Cirebon, Jawa Barat 45162"
+  },
+  {
+    "name": "RS Umum Universitas Muhammadiyah Cirebon",
+    "category": "Rumah Sakit",
+    "phone": "0231-678901",
+    "location": "Jl. K.H. Wahid Hasyim No.8, Desa Mertapada Wetan, Kecamatan Astanajapura, Kabupaten Cirebon, Jawa Barat 45181"
+  },
+  {
+    "name": "RS Umum Daerah Waled",
+    "category": "Rumah Sakit",
+    "phone": "0231-789012",
+    "location": "Jl. Prabu Kiansantang No.4, Desa Waledkota, Kecamatan Waled, Kabupaten Cirebon, Jawa Barat 45187"
+  },
+  {
+    "name": "RS Paru Provinsi Jawa Barat",
+    "category": "Rumah Sakit",
+    "phone": "0231-890123",
+    "location": "Jl. Pangeran Kejaksan, Desa Sidawangi, Kecamatan Sumber, Kabupaten Cirebon, Jawa Barat 45558"
+  },
+  {
+    "name": "RS Umum Mitra Plumbon",
+    "category": "Rumah Sakit",
+    "phone": "0231-901234",
+    "location": "Jl. Raya Plumbon - Palimanan KM 11, Desa Gombang, Kecamatan Plumbon, Kabupaten Cirebon, Jawa Barat 45155"
+  },
+  {
+    "name": "RS Umum Sumber Waras",
+    "category": "Rumah Sakit",
+    "phone": "0231-123987",
+    "location": "Jl. Urip Sumoharjo No.5, Desa Ciwaringin, Kecamatan Ciwaringin, Kabupaten Cirebon, Jawa Barat 45167"
+  },
+  {
+    "name": "RS Umum Sumber Hurip",
+    "category": "Rumah Sakit",
+    "phone": "0231-234876",
+    "location": "Jl. Raden Dewi Sartika No.15, Kelurahan Tukmudal, Kecamatan Sumber, Kabupaten Cirebon, Jawa Barat 45611"
+  },
+  {
+    "name": "RS Umum Khalishah",
+    "category": "Rumah Sakit",
+    "phone": "0231-345765",
+    "location": "Jl. Dr. Setiabudi No.8, Desa Pegagan, Kecamatan Palimanan, Kabupaten Cirebon, Jawa Barat 45161"
+  },
+  {
+    "name": "RSD Gunung Jati",
+    "category": "Rumah Sakit",
+    "phone": "(0231) 206555",
+    "location": "Jalan Kesambi №56, Drajat, Kec. Kesambi, Kota Cirebon, Jawa Barat 45134"
+  },
+  {
+    "name": "RS Budi Asta",
+    "category": "Rumah Sakit",
+    "phone": "(0231) 482888",
+    "location": "Jalan Kalitanjung Grenjeng №51, Harjamukti, Kec. Harjamukti, Kota Cirebon, Jawa Barat 45143"
+  },
+  {
+    "name": "RS Budi Luhur",
+    "category": "Rumah Sakit",
+    "phone": "(0231) 485775",
+    "location": "Jalan Pramuka №18, Kalijaga, Kec. Harjamukti, Kota Cirebon, Jawa Barat 45144"
+  },
+  {
+    "name": "RS Ciremai",
+    "category": "Rumah Sakit",
+    "phone": "(0231) 487890",
+    "location": "Jalan Kesambi №237, Drajat, Kec. Kesambi, Kota Cirebon, Jawa Barat 45133"
+  },
+  {
+    "name": "RS Medimas",
+    "category": "Rumah Sakit",
+    "phone": "(0231) 207555",
+    "location": "Jalan Evakuasi №116, Karyamulya, Kec. Kesambi, Kota Cirebon, Jawa Barat 45132"
+  },
+  {
+    "name": "RS Muhammadiyah Cirebon",
+    "category": "Rumah Sakit",
+    "phone": "(0231) 203747",
+    "location": "Jalan Dr. Wahidin Sudirohusodo №79, Sukapura, Kec. Kejaksan, Kota Cirebon, Jawa Barat 45122"
+  },
+  {
+    "name": "RS Pelabuhan Cirebon",
+    "category": "Rumah Sakit",
+    "phone": "(0231) 205162",
+    "location": "Jalan Sisingamangaraja №45, Panjunan, Kec. Lemahwungkuk, Kota Cirebon, Jawa Barat 45112"
+  },
+  {
+    "name": "RS Sumber Kasih",
+    "category": "Rumah Sakit",
+    "phone": "(0231) 203038",
+    "location": "Jalan Siliwangi №135, Kebonbaru, Kec. Kejaksan, Kota Cirebon, Jawa Barat 45124"
+  },
+  {
+    "name": "RSIA Cahaya Bunda",
+    "category": "RSIA",
+    "phone": "(0231) 206334",
+    "location": "Jalan Perjuangan №8, Sunyaragi, Kec. Kesambi, Kota Cirebon, Jawa Barat 45131"
+  },
+  {
+    "name": "RSIA Panti Abdi Dharma",
+    "category": "RSIA",
+    "phone": "(0231) 204070",
+    "location": "Jalan Pulasaren №7, Kesepuhan, Kec. Lemahwungkuk, Kota Cirebon, Jawa Barat 45114"
+  },
+  {
+    "name": "RSIA Putera Bahagia",
+    "category": "RSIA",
+    "phone": "(0231) 480999",
+    "location": "Jalan Ciremai Raya №114, Kecapi, Kec. Harjamukti, Kota Cirebon, Jawa Barat 45142"
+  },
+  {
+    "name": "Basarnas (Nomor Darurat Nasional)",
+    "category": "Basarnas",
+    "phone": "115",
+    "location": "Cirebon"
+  },
+  {
+    "name": "Basarnas Pos SAR Cirebon",
+    "category": "Basarnas",
+    "phone": "(0231) 8356347",
+    "location": "Jl. Raya Winong KM 20, Desa Gempol, Kecamatan Gempol, Kabupaten Cirebon, Jawa Barat 45161"
+  }
+]

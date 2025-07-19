@@ -57,7 +57,7 @@ class AppThemes {
   }) {
     return ThemeData(
       fontFamily: 'Poppins',
-      useMaterial3: true,
+      // useMaterial3: true,
       brightness: brightness,
       scaffoldBackgroundColor: backgroundColor,
       primaryColor: primaryColor,

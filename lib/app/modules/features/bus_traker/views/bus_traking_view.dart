@@ -8,6 +8,7 @@ import '../controllers/bus_traking_controller.dart';
 
 class BusTrakingView extends GetView<BusTrakingController> {
   BusTrakingView({super.key});
+  @override
   final controller = Get.find<BusTrakingController>();
   final RxBool hasCheckedInternet = false.obs;
 
@@ -88,7 +89,7 @@ class BusTrakingView extends GetView<BusTrakingController> {
                                     ),
                                   ),
                                 );
-                              }).toList(),
+                              }),
                             ],
                           ),
                         ),

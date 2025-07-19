@@ -79,12 +79,12 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.REPORT,
-      page: () => const ReportView(),
+      page: () => ReportView(),
       binding: ReportBinding(),
     ),
     GetPage(
       name: _Paths.IMPORTANT_CONTACTS,
-      page: () => const ImportantContactsView(),
+      page: () => ImportantContactsView(),
       binding: ImportantContactsBinding(),
     ),
   ];
