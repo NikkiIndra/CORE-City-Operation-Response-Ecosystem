@@ -74,10 +74,6 @@ class SettingView extends StatelessWidget {
                     title: "Organization",
                     children: [
                       const _CustomListTile(
-                        title: "Profile",
-                        icon: Icons.person_outline_rounded,
-                      ),
-                      const _CustomListTile(
                         title: "Messaging",
                         icon: Icons.message_outlined,
                       ),
@@ -112,10 +108,6 @@ class SettingView extends StatelessWidget {
                       _CustomListTile(
                         title: "About",
                         icon: Icons.info_outline_rounded,
-                      ),
-                      _CustomListTile(
-                        title: "Sign out",
-                        icon: Icons.exit_to_app_rounded,
                       ),
                     ],
                   ),

@@ -1,8 +1,9 @@
 import 'package:core/app/modules/pages/authcontroller/authC.dart';
+import 'package:core/app/modules/pages/login/views/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../data/bindings/global_binding.dart';
 import '../../../../data/widgets/loading_screen.dart';
-import '../../../../routes/app_pages.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
@@ -25,9 +26,7 @@ class ProfileView extends GetView<ProfileController> {
             Center(
               child: CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage(
-                  "assets/demo/slide1.png",
-                ), // Pastikan file ini ada
+                backgroundImage: AssetImage("assets/slide_1.png"),
               ),
             ),
             const SizedBox(height: 15),
@@ -85,8 +84,12 @@ class ProfileView extends GetView<ProfileController> {
                   message: "Keluar dari aplikasi...",
                 );
                 Future.delayed(const Duration(seconds: 3), () {
+                  // ignore: use_build_context_synchronously
                   LoadingWidget.hideLoading(context);
-                  Get.offAllNamed(Routes.LOGIN);
+                  Get.offAll(
+                    () => LoginView(),
+                    binding: GlobalBindings(), // atau GlobalBindings()
+                  );
                 });
               },
             ),

@@ -1,4 +1,5 @@
 import 'package:core/app/data/Service/ThemeController.dart';
+import 'package:core/app/modules/pages/authcontroller/authC.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +9,7 @@ import '../controllers/home_controller.dart';
 class HomeView extends GetView<HomeController> {
   HomeView({super.key});
   final themeController = Get.find<ThemeController>();
+  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,51 +25,45 @@ class HomeView extends GetView<HomeController> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CircleAvatar(
                       radius: 30,
                       backgroundColor: themeController.containerColor,
-                      child: CircleAvatar(
+                      child: const CircleAvatar(
                         radius: 28,
                         backgroundImage: AssetImage("assets/slide_1.png"),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                    const SizedBox(width: 15),
+                    Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Obx(() {
-                            final user = controller.user.value;
+                            final user = authC.currentUser.value;
                             return Text.rich(
                               TextSpan(
                                 children: [
-                                  TextSpan(
+                                  const TextSpan(
                                     text: "Selamat Datang ",
                                     style: TextStyle(
-                                      color:
-                                          Theme.of(
-                                            context,
-                                          ).textTheme.headlineMedium!.color!,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w600,
-                                      overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
                                   TextSpan(
-                                    text: user?.fullname ?? "User",
-                                    style: TextStyle(
-                                      color: Colors.grey.shade700,
+                                    text: (user?.fullname ?? "Tamu"),
+                                    style: const TextStyle(
                                       fontSize: 15,
-                                      fontWeight: FontWeight.w600,
-                                      overflow: TextOverflow.ellipsis,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ],
                               ),
+                              overflow: TextOverflow.ellipsis,
                             );
                           }),
-
                           Text(
                             "Semoga kamu Ceria Hari Ini",
                             style: TextStyle(
@@ -79,9 +75,14 @@ class HomeView extends GetView<HomeController> {
                                   .withOpacity(0.8),
                               fontWeight: FontWeight.w600,
                             ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ],
                       ),
+                    ),
+                    IconButton(
+                      onPressed: () => Get.toNamed("/profile"),
+                      icon: const Icon(Icons.notifications, size: 30),
                     ),
                   ],
                 ),

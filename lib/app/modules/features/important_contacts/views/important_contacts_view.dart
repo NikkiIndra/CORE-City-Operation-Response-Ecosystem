@@ -5,6 +5,8 @@ import '../controllers/important_contacts_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ImportantContactsView extends GetView<ImportantContactsController> {
+  const ImportantContactsView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -163,13 +165,13 @@ class ImportantContactsView extends GetView<ImportantContactsController> {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  'Lokasi: ${user.location ?? "Tidak diketahui"}',
+                                  'Lokasi: ${user.location ?? "Nomor Darurat Nasional"}',
                                 ),
                               ],
                             ),
                           ),
                         );
-                      }).toList(),
+                      }),
                     ],
                   );
                 },

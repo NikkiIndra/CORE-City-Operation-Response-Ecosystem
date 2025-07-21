@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -10,14 +9,14 @@ class OnboardingView extends GetView<OnboardingController> {
   const OnboardingView({super.key});
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      debugShowCheckedModeBanner: false,
-
-      home: OnBoardingSlider(
+    return Scaffold(
+      body: OnBoardingSlider(
         totalPage: 3,
         speed: 1.8,
         imageVerticalOffset: 20,
+        pageBackgroundColor: Colors.white,
         headerBackgroundColor: Colors.white,
+        controllerColor: Colors.black,
         finishButtonText: 'Register',
         finishButtonStyle: FinishButtonStyle(
           backgroundColor: Colors.black,
@@ -26,7 +25,7 @@ class OnboardingView extends GetView<OnboardingController> {
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
           disabledElevation: 23,
-          focusColor: Colors.black,
+          focusColor: const Color.fromARGB(255, 179, 164, 164),
         ),
         onFinish: () {
           Get.offAllNamed(Routes.REGISTER);
@@ -51,22 +50,21 @@ class OnboardingView extends GetView<OnboardingController> {
         ),
 
         // Tombol Login tanpa shadow
-        trailing: ElevatedButton.icon(
-          icon: Icon(Icons.login, color: Colors.black),
-          label: Text("Login", style: TextStyle(color: Colors.black)),
-          style: ElevatedButton.styleFrom(
-            elevation: 0, // hilangkan bayangan
-            backgroundColor: Colors.transparent, // background transparan
-            shadowColor: Colors.transparent, // hilangkan shadow efek
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8), // hilangkan border radius
-              // side: BorderSide.none, // hilangkan border
-            ),
-            padding: EdgeInsets.only(left: 12, right: 12), // jika mau rapat
-          ),
-          onPressed: () => Get.offAllNamed(Routes.LOGIN),
-        ),
-
+        // trailing: ElevatedButton.icon(
+        //   icon: Icon(Icons.login, color: Colors.black),
+        //   label: Text("Login", style: TextStyle(color: Colors.black)),
+        //   style: ElevatedButton.styleFrom(
+        //     elevation: 0, // hilangkan bayangan
+        //     backgroundColor: Colors.transparent, // background transparan
+        //     shadowColor: Colors.transparent, // hilangkan shadow efek
+        //     shape: RoundedRectangleBorder(
+        //       borderRadius: BorderRadius.circular(8), // hilangkan border radius
+        //       // side: BorderSide.none, // hilangkan border
+        //     ),
+        //     padding: EdgeInsets.only(left: 12, right: 12), // jika mau rapat
+        //   ),
+        //   onPressed: () => Get.offAllNamed(Routes.LOGIN),
+        // ),
         background: [
           Image.asset('assets/slide_1.png', height: 400, fit: BoxFit.contain),
           Image.asset('assets/slide_2.png', height: 400, fit: BoxFit.contain),

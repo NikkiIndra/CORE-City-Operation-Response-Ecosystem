@@ -25,7 +25,7 @@ class BusTrakingController extends GetxController {
   Timer? timer;
 
   final RxList<LatLng> routePoints = <LatLng>[].obs;
-  final List<String> busStopsName = ['Alun-Alun', 'Pasar Baru', 'Cihampelas'];
+  final List<String> busStopsName = ['alun-alun STIKOM', 'Pemuda', 'Move-Gym'];
 
   void selectBus(String busId) {
     selectedBusId.value = busId;
@@ -55,9 +55,9 @@ class BusTrakingController extends GetxController {
       }).toList();
 
   final List<LatLng> busStops = [
-    LatLng(-6.891494, 107.613269),
-    LatLng(-6.890621, 107.608016),
-    LatLng(-6.893228, 107.610036),
+    LatLng(-6.712512, 108.531385),
+    LatLng(-6.730743, 108.540145),
+    LatLng(-6.739317, 108.543153),
   ];
 
   int currentStopIndex = 0;

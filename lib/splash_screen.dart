@@ -22,19 +22,18 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _checkFirstTime() async {
     await Future.delayed(const Duration(seconds: 2)); // simulasi loading
+
     bool isFirstTime = box.read('isfirsttime') ?? true;
     bool isLoggedIn = box.read('is_logged_in') ?? false;
 
     if (isFirstTime) {
       box.write('isfirsttime', false);
-      Get.offAllNamed(Routes.ONBOARDING); // arahkan ke onboarding
+      Get.offAllNamed(Routes.ONBOARDING); // tampilkan hanya sekali
     } else {
       if (isLoggedIn) {
-        Get.offAllNamed(Routes.NAVBAR); // arahkan ke navbar
+        Get.offAllNamed(Routes.NAVBAR); // langsung ke home jika sudah login
       } else {
-        Get.offAllNamed(
-          Routes.ONBOARDING,
-        ); // arahkan ke login harusnya ke register untuk percobaan langsung ke home aja
+        Get.offAllNamed(Routes.LOGIN); // langsung ke login jika belum login
       }
     }
   }

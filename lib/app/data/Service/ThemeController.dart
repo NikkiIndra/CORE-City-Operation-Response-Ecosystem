@@ -21,6 +21,8 @@ class ThemeController extends GetxController {
 
   Color get containerColor =>
       isDark ? const Color.fromARGB(200, 39, 39, 39) : Colors.white;
+
+  get currentUser => null;
 }
 
 class AppThemes {

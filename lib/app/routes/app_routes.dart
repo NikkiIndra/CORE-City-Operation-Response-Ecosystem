@@ -16,6 +16,7 @@ abstract class Routes {
   static const EMERGENCY = _Paths.EMERGENCY;
   static const REPORT = _Paths.REPORT;
   static const IMPORTANT_CONTACTS = _Paths.IMPORTANT_CONTACTS;
+  static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
 }
 
 abstract class _Paths {
@@ -33,4 +34,5 @@ abstract class _Paths {
   static const EMERGENCY = '/emergency';
   static const REPORT = '/report';
   static const IMPORTANT_CONTACTS = '/important-contacts';
+  static const RESET_PASSWORD = '/reset-password';
 }

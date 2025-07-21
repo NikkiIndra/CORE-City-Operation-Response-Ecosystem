@@ -5,29 +5,32 @@ import '../modules/features/bus_traker/bindings/bus_traking_binding.dart';
 import '../modules/features/bus_traker/views/bus_traking_view.dart';
 import '../modules/features/emergency/bindings/emergency_binding.dart';
 import '../modules/features/emergency/views/emergency_view.dart';
-import '../modules/pages/home/views/home_view.dart';
 import '../modules/features/important_contacts/bindings/important_contacts_binding.dart';
 import '../modules/features/important_contacts/views/important_contacts_view.dart';
-import '../modules/pages/login/bindings/login_binding.dart';
-import '../modules/pages/login/views/login_view.dart';
+import '../modules/features/report/bindings/report_binding.dart';
+import '../modules/features/report/views/report_view.dart';
 import '../modules/navbar/bindings/navbar_binding.dart';
 import '../modules/navbar/views/navbar_view.dart';
+import '../modules/pages/home/views/home_view.dart';
+import '../modules/pages/login/bindings/login_binding.dart';
+import '../modules/pages/login/views/login_view.dart';
 import '../modules/pages/onboarding/bindings/onboarding_binding.dart';
 import '../modules/pages/onboarding/views/onboarding_view.dart';
 import '../modules/pages/profile/bindings/profile_binding.dart';
 import '../modules/pages/profile/views/profile_view.dart';
 import '../modules/pages/register/bindings/register_binding.dart';
 import '../modules/pages/register/views/register_view.dart';
-import '../modules/features/report/bindings/report_binding.dart';
-import '../modules/features/report/views/report_view.dart';
 import '../modules/pages/setting/bindings/setting_binding.dart';
 import '../modules/pages/setting/views/setting_view.dart';
+import '../modules/pages/reset_password/bindings/reset_password_binding.dart';
+import '../modules/pages/reset_password/views/reset_password_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
+  // ignore: constant_identifier_names
   static const INITIAL = Routes.HOME;
 
   static final routes = [
@@ -43,12 +46,12 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () => const LoginView(),
+      page: () => LoginView(),
       binding: LoginBinding(),
     ),
     GetPage(
       name: _Paths.REGISTER,
-      page: () => const RegisterView(),
+      page: () => RegisterView(),
       binding: RegisterBinding(),
     ),
     GetPage(
@@ -66,7 +69,6 @@ class AppPages {
       page: () => NavbarView(),
       binding: NavbarBinding(),
     ),
-
     GetPage(
       name: _Paths.BUS_TRAKING,
       page: () => BusTrakingView(),
@@ -74,7 +76,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.EMERGENCY,
-      page: () => const EmergencyView(),
+      page: () => EmergencyView(),
       binding: EmergencyBinding(),
     ),
     GetPage(
@@ -86,6 +88,11 @@ class AppPages {
       name: _Paths.IMPORTANT_CONTACTS,
       page: () => ImportantContactsView(),
       binding: ImportantContactsBinding(),
+    ),
+    GetPage(
+      name: _Paths.RESET_PASSWORD,
+      page: () => ResetPasswordView(),
+      binding: ResetPasswordBinding(),
     ),
   ];
 }

@@ -4,7 +4,7 @@ import '../controllers/report_controller.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ReportView extends GetView<ReportController> {
-  ReportView({super.key});
+  const ReportView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -2,11 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../data/Service/ThemeController.dart';
 import '../../../../data/widgets/scleton_loading.dart';
 import '../controllers/emergency_controller.dart';
+import 'package:core/app/modules/features/emergency/views/hotkeys.dart';
+
+import 'manual_button.dart';
 
 class EmergencyView extends GetView<EmergencyController> {
-  const EmergencyView({super.key});
+  EmergencyView({super.key});
+  final themeC = Get.find<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +39,10 @@ class EmergencyView extends GetView<EmergencyController> {
                             SizedBox(height: height * 0.03),
                             Container(
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color:
+                                    themeC.isDark
+                                        ? Theme.of(context).cardColor
+                                        : Colors.white,
                                 border: Border(
                                   bottom: BorderSide(
                                     width: 1,
@@ -76,7 +84,12 @@ class EmergencyView extends GetView<EmergencyController> {
 
                                   SizedBox(height: height * 0.02),
                                   ElevatedButton.icon(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Get.to(
+                                        () => HotkeysView(),
+                                        transition: Transition.rightToLeft,
+                                      );
+                                    },
                                     label: Text("Laporkan sekarang"),
                                     icon: Icon(CupertinoIcons.play),
                                   ),
@@ -86,7 +99,10 @@ class EmergencyView extends GetView<EmergencyController> {
                             SizedBox(height: height * 0.03),
                             Container(
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color:
+                                    themeC.isDark
+                                        ? Theme.of(context).cardColor
+                                        : Colors.white,
                                 border: Border(
                                   bottom: BorderSide(
                                     width: 1,
@@ -111,7 +127,7 @@ class EmergencyView extends GetView<EmergencyController> {
                                   Row(
                                     children: [
                                       Text(
-                                        "Darurat Manual ",
+                                        "Tombol Manual ",
                                         style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
@@ -127,7 +143,12 @@ class EmergencyView extends GetView<EmergencyController> {
                                   ),
                                   SizedBox(height: height * 0.02),
                                   ElevatedButton.icon(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Get.to(
+                                        () => ManualButton(),
+                                        transition: Transition.rightToLeft,
+                                      );
+                                    },
                                     label: Text("Laporkan sekarang"),
                                     icon: Icon(CupertinoIcons.play),
                                   ),

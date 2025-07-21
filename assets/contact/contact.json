@@ -3,7 +3,7 @@
     "name": "Polisi (Nomor Darurat Nasional)",
     "category": "Polisi",
     "phone": "110",
-    "location": ""
+    "location": null
   },
   {
     "name": "Polres Cirebon Kota",
@@ -21,7 +21,7 @@
     "name": "Pemadam Kebakaran (Nomor Darurat Nasional)",
     "category": "Pemadam",
     "phone": "113",
-    "location": ""
+    "location": null
   },
   {
     "name": "Pos Damkar Sumber Kab. Cirebon",

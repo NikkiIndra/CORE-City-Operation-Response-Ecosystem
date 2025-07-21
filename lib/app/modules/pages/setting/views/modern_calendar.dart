@@ -11,10 +11,7 @@ class ModernCalendar extends StatelessWidget {
     final primaryColor = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Kalender"),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Kalender"), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: TableCalendar(
@@ -46,6 +43,7 @@ class ModernCalendar extends StatelessWidget {
               color: isDark ? Colors.red[300] : Colors.red,
             ),
             todayDecoration: BoxDecoration(
+              // ignore: deprecated_member_use
               color: primaryColor.withOpacity(0.3),
               shape: BoxShape.circle,
             ),

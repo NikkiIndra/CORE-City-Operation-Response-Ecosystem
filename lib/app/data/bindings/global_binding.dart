@@ -10,7 +10,7 @@ class GlobalBindings extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut<ThemeController>(() => ThemeController());
-    Get.lazyPut<HomeController>(() => HomeController());
+    Get.lazyPut<HomeController>(() => HomeController(), fenix: true);
     Get.lazyPut<ProfileController>(() => ProfileController());
     Get.lazyPut<BusTrakingController>(() => BusTrakingController());
     Get.lazyPut<AuthController>(() => AuthController());
