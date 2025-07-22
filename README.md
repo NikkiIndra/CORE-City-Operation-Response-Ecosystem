@@ -43,21 +43,4 @@
 ![Demo Apps](assets/demo/demo1.gif)
 
 
-## Struktur Folder
-#### lib/
-#### ├── data/
-#### ├── moduls/
-#### │   ├── navbar/
-#### │   ├── pages/
-#### │   └── features/
-#### │        ├── report/
-#### │        ├── bus_tracker/
-#### │        ├── importan_contacts
-#### │        └── emergency
-#### ├── routes/
-#### ├── my_app.dart
-#### ├── splash_screen.dart
-#### └── main.dart
- 
-
 ## Thank U Gusy 👌
