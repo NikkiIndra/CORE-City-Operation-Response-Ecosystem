@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../notification/controllers/notification_controller.dart';
 import '../controllers/report_controller.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -247,7 +248,16 @@ class ReportView extends GetView<ReportController> {
             height: 50,
             child: FloatingActionButton.extended(
               onPressed:
-                  controller.isSubmitting.value ? null : controller.submitForm,
+                  controller.isSubmitting.value
+                      ? null
+                      : () async {
+                        controller.submitForm(); // Kirim form dulu
+                        NotificationController.createNewNotification(
+                          "laporan Terkirim",
+                          "Laporan Anda berhasil dikirim. Terima kasih!",
+                          bigPicture: "assets/slide_1.png",
+                        ); // Tampilkan notifikasi setelah sukses
+                      },
               label:
                   controller.isSubmitting.value
                       ? SizedBox(

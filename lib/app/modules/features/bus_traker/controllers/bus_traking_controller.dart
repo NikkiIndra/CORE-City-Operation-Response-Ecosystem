@@ -17,15 +17,45 @@ class BusTrakingController extends GetxController {
   final RxString selectedBusId = ''.obs;
   final isFullScreen = false.obs;
   final isLoading = false.obs;
-
-  final RxList<Marker> markers = <Marker>[].obs;
-
-  late final MapController mapController = MapController();
-  late StreamSubscription _internetSub;
-  Timer? timer;
-
   final RxList<LatLng> routePoints = <LatLng>[].obs;
-  final List<String> busStopsName = ['alun-alun STIKOM', 'Pemuda', 'Move-Gym'];
+  final List<String> busStopsName1 = ['alun-alun STIKOM', 'Pemuda', 'Move-Gym'];
+  final List<String> busStopsName2 = ['Kangraksan', 'Rs mediman', 'pemuda'];
+  final RxList<Marker> markers = <Marker>[].obs;
+  final MapController mapController = MapController();
+
+  late StreamSubscription _internetSub;
+
+  Timer? timer;
+  int currentStopIndex = 0;
+
+  @override
+  void onReady() {
+    super.onReady();
+
+    // Start timer saat halaman muncul
+    timer = Timer.periodic(const Duration(seconds: 5), (_) {
+      fetchLocationFromThingSpeak();
+    });
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    // Monitor internet jika ingin
+    _internetSub = Connectivity().onConnectivityChanged.listen((result) {
+      if (result == ConnectivityResult.none) {
+        _showInternetDialog(Get.context!);
+      }
+    });
+  }
+
+  @override
+  void onClose() {
+    timer?.cancel();
+    _internetSub.cancel();
+    super.onClose();
+  }
 
   void selectBus(String busId) {
     selectedBusId.value = busId;
@@ -60,38 +90,11 @@ class BusTrakingController extends GetxController {
     LatLng(-6.739317, 108.543153),
   ];
 
-  int currentStopIndex = 0;
-
-  @override
-  void onInit() {
-    super.onInit();
-    _internetSub = Connectivity().onConnectivityChanged.listen((result) {
-      if (result == ConnectivityResult.none) {
-        _showInternetDialog(Get.context!);
-      }
-    });
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-    timer = Timer.periodic(const Duration(seconds: 5), (_) {
-      fetchLocationFromThingSpeak();
-    });
-  }
-
-  @override
-  void onClose() {
-    timer?.cancel();
-    _internetSub.cancel();
-    super.onClose();
-  }
-
   void toggleFullScreen() => isFullScreen.toggle();
 
   List<Marker> get allBusMarkers {
     return busLocations.entries.map((entry) {
-      final color = entry.key == 'bus_1' ? Colors.green : Colors.red;
+      final color = entry.key == 'bus_1' ? Colors.grey : Colors.red;
       return Marker(
         width: 40,
         height: 40,
@@ -218,10 +221,15 @@ class BusTrakingController extends GetxController {
       width: 40.0,
       height: 40.0,
       point: LatLng(location.latitude, location.longitude),
-      child: Icon(
-        CupertinoIcons.bus,
-        color: Colors.greenAccent.shade700,
-        size: 30,
+      child: SizedBox(
+        width: 20.0,
+        height: 20.0,
+        child: Image.asset(
+          selectedBusId.value == 'bus_1'
+              ? 'assets/images/bus1.png'
+              : 'assets/images/bus2.png',
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

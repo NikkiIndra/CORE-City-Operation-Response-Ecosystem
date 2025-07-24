@@ -1,3 +1,4 @@
+import 'package:core/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
@@ -40,10 +41,18 @@ class SettingView extends StatelessWidget {
                     ),
                   ),
 
-                  const _CustomListTile(
-                    title: "Notifications",
-                    icon: Icons.notifications_none_rounded,
+                  Obx(
+                    () => _CustomListTile(
+                      title:
+                          "Notifikasi (${controller.notificationAllowed.value ? 'Diizinkan' : 'Diblokir'})",
+                      icon: Icons.notifications_none_rounded,
+                      trailing: Icon(Icons.arrow_forward_ios_rounded, size: 16),
+                      onTap: () {
+                        controller.openSettingsAndRefresh();
+                      },
+                    ),
                   ),
+
                   _CustomListTile(
                     title: "Izinkan Kamera",
                     icon: Icons.camera_alt_outlined,
@@ -73,9 +82,18 @@ class SettingView extends StatelessWidget {
                   _SingleSection(
                     title: "Organization",
                     children: [
-                      const _CustomListTile(
+                      _CustomListTile(
                         title: "Messaging",
                         icon: Icons.message_outlined,
+                        trailing: IconButton(
+                          onPressed: () {
+                            Get.toNamed(Routes.PLAY_REPORT);
+                          },
+                          icon: const Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 16,
+                          ),
+                        ),
                       ),
                       const _CustomListTile(
                         title: "Calling",

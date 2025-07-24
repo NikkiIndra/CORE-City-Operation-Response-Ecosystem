@@ -1,5 +1,14 @@
 import 'dart:convert';
 
+import 'package:core/app/data/Service/location_service.dart';
+import 'package:core/app/modules/features/bus_traker/bindings/bus_traking_binding.dart';
+import 'package:core/app/modules/features/bus_traker/controllers/bus_traking_controller.dart';
+import 'package:core/app/modules/features/bus_traker/views/bus_traking_view.dart';
+import 'package:core/app/modules/features/emergency/bindings/emergency_binding.dart';
+import 'package:core/app/modules/features/emergency/views/emergency_view.dart';
+import 'package:core/app/modules/features/important_contacts/bindings/important_contacts_binding.dart';
+import 'package:core/app/modules/features/report/bindings/report_binding.dart';
+import 'package:core/app/modules/features/report/views/report_view.dart';
 import 'package:core/app/routes/app_pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -45,32 +54,21 @@ class HomeController extends GetxController {
     "assets/img4.png",
     "assets/img5.png",
   ];
-  List Fiture = ["BUS TRAKING", "LAPOR ", "KONTAK PENTING", "DARURAT"];
+  List Fiture = ["BUS TRAKING", "LAPOR ", "DARURAT", "KONTAK PENTING"];
 
   List<IconData> iconFiture = [
     CupertinoIcons.bus,
     CupertinoIcons.paperplane,
-    CupertinoIcons.phone,
     CupertinoIcons.exclamationmark_triangle_fill,
+    CupertinoIcons.phone,
   ];
 
   List<String> widgetFiture = [
     Routes.BUS_TRAKING,
     Routes.REPORT,
-    Routes.IMPORTANT_CONTACTS,
     Routes.EMERGENCY,
+    Routes.IMPORTANT_CONTACTS,
   ];
-
-  // @override
-  // void onReady() {
-  //   super.onReady();
-
-  // }
-
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
 
   Future<void> loadNews() async {
     isLoading.value = true;

@@ -11,6 +11,8 @@ import '../modules/features/report/bindings/report_binding.dart';
 import '../modules/features/report/views/report_view.dart';
 import '../modules/navbar/bindings/navbar_binding.dart';
 import '../modules/navbar/views/navbar_view.dart';
+import '../modules/notification/bindings/notification_binding.dart';
+import '../modules/notification/views/notification_view.dart';
 import '../modules/pages/home/views/home_view.dart';
 import '../modules/pages/login/bindings/login_binding.dart';
 import '../modules/pages/login/views/login_view.dart';
@@ -20,10 +22,12 @@ import '../modules/pages/profile/bindings/profile_binding.dart';
 import '../modules/pages/profile/views/profile_view.dart';
 import '../modules/pages/register/bindings/register_binding.dart';
 import '../modules/pages/register/views/register_view.dart';
-import '../modules/pages/setting/bindings/setting_binding.dart';
-import '../modules/pages/setting/views/setting_view.dart';
 import '../modules/pages/reset_password/bindings/reset_password_binding.dart';
 import '../modules/pages/reset_password/views/reset_password_view.dart';
+import '../modules/pages/setting/bindings/setting_binding.dart';
+import '../modules/pages/setting/views/setting_view.dart';
+import '../modules/play_report/bindings/play_report_binding.dart';
+import '../modules/play_report/views/play_report_view.dart';
 
 part 'app_routes.dart';
 
@@ -93,6 +97,16 @@ class AppPages {
       name: _Paths.RESET_PASSWORD,
       page: () => ResetPasswordView(),
       binding: ResetPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => NotificationView(),
+      binding: NotificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.PLAY_REPORT,
+      page: () => PlayReportView(),
+      binding: PlayReportBinding(),
     ),
   ];
 }

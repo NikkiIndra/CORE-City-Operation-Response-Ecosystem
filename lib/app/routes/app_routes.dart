@@ -17,6 +17,8 @@ abstract class Routes {
   static const REPORT = _Paths.REPORT;
   static const IMPORTANT_CONTACTS = _Paths.IMPORTANT_CONTACTS;
   static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const PLAY_REPORT = _Paths.PLAY_REPORT;
 }
 
 abstract class _Paths {
@@ -35,4 +37,6 @@ abstract class _Paths {
   static const REPORT = '/report';
   static const IMPORTANT_CONTACTS = '/important-contacts';
   static const RESET_PASSWORD = '/reset-password';
+  static const NOTIFICATION = '/notification';
+  static const PLAY_REPORT = '/play-report';
 }

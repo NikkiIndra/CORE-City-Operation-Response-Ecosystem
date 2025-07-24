@@ -3,13 +3,18 @@ import 'package:core/app/modules/pages/authcontroller/authC.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../data/Service/notification_badge_controller.dart';
+import '../../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
+
+import '../../../../data/Service/location_service.dart';
 
 // ignore: must_be_immutable
 class HomeView extends GetView<HomeController> {
   HomeView({super.key});
   final themeController = Get.find<ThemeController>();
   final authC = Get.find<AuthController>();
+  final badgeC = Get.find<NotificationBadgeController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,12 +32,15 @@ class HomeView extends GetView<HomeController> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundColor: themeController.containerColor,
-                      child: const CircleAvatar(
-                        radius: 28,
-                        backgroundImage: AssetImage("assets/slide_1.png"),
+                    GestureDetector(
+                      onTap: () => Get.toNamed("/profile"),
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundColor: themeController.containerColor,
+                        child: const CircleAvatar(
+                          radius: 28,
+                          backgroundImage: AssetImage("assets/slide_1.png"),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 15),
@@ -68,11 +76,11 @@ class HomeView extends GetView<HomeController> {
                             "Semoga kamu Ceria Hari Ini",
                             style: TextStyle(
                               fontSize: 12,
-                              color: Theme.of(context)
-                                  .primaryTextTheme
-                                  .labelSmall!
-                                  .color!
-                                  .withOpacity(0.8),
+                              color: Theme.of(
+                                context,
+                              ).primaryTextTheme.labelSmall!.color!
+                              // ignore: deprecated_member_use
+                              .withOpacity(0.8),
                               fontWeight: FontWeight.w600,
                             ),
                             overflow: TextOverflow.ellipsis,
@@ -80,9 +88,36 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
                     ),
-                    IconButton(
-                      onPressed: () => Get.toNamed("/profile"),
-                      icon: const Icon(Icons.notifications, size: 30),
+                    Stack(
+                      children: [
+                        IconButton(
+                          onPressed: () => Get.toNamed(Routes.NOTIFICATION),
+                          icon: const Icon(Icons.notifications, size: 30),
+                        ),
+                        Positioned(
+                          right: 4,
+                          top: 4,
+                          child: Obx(() {
+                            if (badgeC.badgeCount.value == 0) {
+                              return const SizedBox.shrink();
+                            }
+                            return Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Text(
+                                badgeC.badgeCount.value.toString(),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            );
+                          }),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -108,7 +143,35 @@ class HomeView extends GetView<HomeController> {
                   ),
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () => Get.toNamed(controller.widgetFiture[index]),
+                      onTap: () async {
+                        if (index < 3) {
+                          // Tampilkan dialog loading
+                          Get.dialog(
+                            Center(child: CircularProgressIndicator()),
+                            barrierDismissible: false,
+                          );
+
+                          // Cek koneksi internet
+                          await LocationService.checkInternetConnection();
+                          await Future.delayed(Duration(milliseconds: 200));
+                          Get.back();
+
+                          if (!LocationService.isConnected.value) {
+                            Get.snackbar(
+                              "Tidak Ada Koneksi Internet",
+                              "Silakan periksa koneksi internet Anda.",
+                              snackPosition: SnackPosition.BOTTOM,
+                              backgroundColor: Colors.transparent,
+                              colorText: Colors.black,
+                            );
+                            return;
+                          }
+                        }
+
+                        // Navigasi via route name agar binding aktif otomatis
+                        Get.toNamed(controller.widgetFiture[index]);
+                      },
+
                       child: Container(
                         height: 100,
                         width: 100,
@@ -117,6 +180,7 @@ class HomeView extends GetView<HomeController> {
                           borderRadius: BorderRadius.circular(12),
                           boxShadow: [
                             BoxShadow(
+                              // ignore: deprecated_member_use
                               color: Colors.black.withOpacity(0.2),
                               blurRadius: 10,
                               offset: Offset(2, 1),
@@ -162,6 +226,7 @@ class HomeView extends GetView<HomeController> {
                         ScrollViewKeyboardDismissBehavior.onDrag,
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
+
                     padding: EdgeInsets.symmetric(vertical: 20),
                     itemBuilder: (context, index) {
                       final item = controller.newsList[index]; // ambil item
@@ -178,6 +243,7 @@ class HomeView extends GetView<HomeController> {
 
                           boxShadow: [
                             BoxShadow(
+                              // ignore: deprecated_member_use
                               color: Colors.black.withOpacity(0.2),
                               blurRadius: 10,
                               offset: Offset(2, 1),

@@ -1,3 +1,4 @@
+import 'package:core/app/data/Service/notification_badge_controller.dart';
 import 'package:core/app/modules/pages/profile/controllers/profile_controller.dart';
 import 'package:get/get.dart';
 
@@ -14,5 +15,8 @@ class GlobalBindings extends Bindings {
     Get.lazyPut<ProfileController>(() => ProfileController());
     Get.lazyPut<BusTrakingController>(() => BusTrakingController());
     Get.lazyPut<AuthController>(() => AuthController());
+    Get.lazyPut<NotificationBadgeController>(
+      () => NotificationBadgeController(),
+    );
   }
 }

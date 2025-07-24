@@ -6,14 +6,28 @@ import 'app/data/bindings/global_binding.dart';
 import 'app/routes/app_pages.dart';
 import 'splash_screen.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+  static final GlobalKey<NavigatorState> navigatorKey =
+      GlobalKey<NavigatorState>();
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  // @override
+  // void initState() {
+  //   NotificationController.startListeningNotificationEvents();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
     final themeController = Get.find<ThemeController>();
 
     return GetMaterialApp(
+      navigatorKey: MyApp.navigatorKey,
       debugShowCheckedModeBanner: false,
       title: "SmartCity",
       initialBinding: GlobalBindings(),

@@ -116,20 +116,30 @@ class _RegisterViewState extends State<RegisterView> {
                             backgroundColor: Colors.redAccent,
                             colorText: Colors.white,
                           );
-                          return; // STOP di sini
+                          return;
                         }
 
-                        // Jika belum pernah daftar, baru lanjut
-                        // HANYA ditampilkan jika lanjut proses
+                        // Tampilkan loading
                         LoadingWidget.showLoading(
-                          // ignore: use_build_context_synchronously
                           context,
                           message: "Mendaftarkan...",
                         );
 
-                        await authC.register();
-                        // ignore: use_build_context_synchronously
+                        // Panggil fungsi register
+                        final success =
+                            await authC.register(); // ubah jadi return bool
+
+                        print("Registrasi dipanggil");
+                        print("LoadingWidget.showLoading selesai");
+                        print("Register success: $success");
+                        print("Navigasi ke login");
+                        // Sembunyikan loading
                         LoadingWidget.hideLoading(context);
+
+                        // Jika sukses, pindah ke login
+                        if (success) {
+                          Get.toNamed('/login');
+                        }
                       }
                     },
 

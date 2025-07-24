@@ -1,3 +1,4 @@
+import 'package:core/app/modules/notification/controllers/notification_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -17,6 +18,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      NotificationController.startListeningNotificationEvents();
+    });
     _checkFirstTime();
   }
 

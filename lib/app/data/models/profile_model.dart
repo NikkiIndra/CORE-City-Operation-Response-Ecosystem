@@ -3,20 +3,12 @@ class ProfileModel {
   String fullname;
   String email;
   String pass;
-  // final String mobilephone;
-  // final String rt;
-  // final String rw;
-  // final String namaDesa;
 
   ProfileModel({
     this.id,
     required this.fullname,
     required this.email,
     required this.pass,
-    // required this.mobilephone,
-    // required this.rt,
-    // required this.rw,
-    // required this.namaDesa,
   });
 
   static ProfileModel fromMap(Map<String, dynamic> e) {
@@ -25,6 +17,20 @@ class ProfileModel {
       fullname: e['fullname'],
       email: e['email'],
       pass: e['pass'],
+    );
+  }
+
+  ProfileModel copyWith({
+    int? id,
+    String? fullname,
+    String? email,
+    String? pass,
+  }) {
+    return ProfileModel(
+      id: id ?? this.id,
+      fullname: fullname ?? this.fullname,
+      email: email ?? this.email,
+      pass: pass ?? this.pass,
     );
   }
 

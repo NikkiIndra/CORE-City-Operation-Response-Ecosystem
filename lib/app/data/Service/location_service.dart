@@ -1,12 +1,16 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../models/bus_location.dart';
 
 class LocationService {
+  static RxBool isConnected = false.obs;
+
   static Future<BusLocation?> getBusLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
@@ -24,7 +28,9 @@ class LocationService {
 
     try {
       final position = await Geolocator.getCurrentPosition(
+        // ignore: deprecated_member_use
         desiredAccuracy: LocationAccuracy.high,
+        // ignore: deprecated_member_use
         timeLimit: const Duration(seconds: 10),
       );
       return BusLocation(
@@ -50,19 +56,21 @@ class LocationService {
             '${place.administrativeArea}, ${place.country}';
       }
     } catch (e) {
-      print("Gagal dapat alamat dari koordinat: $e");
+      if (kDebugMode) {
+        print("Gagal dapat alamat dari koordinat: $e");
+      }
     }
     return null;
   }
 
-  static Future<bool> checkInternetConnection() async {
+  static Future<void> checkInternetConnection() async {
     try {
       final result = await InternetAddress.lookup(
         'google.com',
       ).timeout(const Duration(seconds: 5));
-      return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
+      isConnected.value = result.isNotEmpty && result[0].rawAddress.isNotEmpty;
     } catch (_) {
-      return false;
+      isConnected.value = false;
     }
   }
 

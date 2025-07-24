@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:core/app/data/Service/db_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -24,7 +25,23 @@ class ReportController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    nameController.text = box.read('namaKtp') ?? '';
+    loadUserNameFromDb();
+  }
+
+  @override
+  void onClose() {
+    nameController.dispose();
+    addressController.dispose();
+    dateController.dispose();
+    descriptionController.dispose();
+    super.onClose();
+  }
+
+  void loadUserNameFromDb() async {
+    final name = await DatabaseHelper.instance.getUserName();
+    if (name != null) {
+      nameController.text = name;
+    }
   }
 
   @override
@@ -188,13 +205,22 @@ class ReportController extends GetxController {
         showMsg('Ambil foto terlebih dahulu');
         return;
       }
-      Get.snackbar(
-        "Sukses",
-        "Data Berhasil Di kirim ke pusat",
-        duration: Duration(seconds: 2),
-      );
+
       isSubmitting.value = true;
-      await Future.delayed(Duration(seconds: 2));
+
+      // Cetak semua inputan ke terminal
+      print('--- Data Laporan ---');
+      print('Nama: ${nameController.text}');
+      print('Alamat: ${addressController.text}');
+      print('Tanggal: ${dateController.text}');
+      print('Jenis Laporan: ${jenisLaporan.value}');
+      print('Deskripsi: ${descriptionController.text}');
+      print('Jumlah Gambar: ${images.length}');
+      print('---------------------');
+
+      // TODO: Kirim data ke server di masa depan di sini
+
+      await Future.delayed(Duration(seconds: 1));
 
       await _submitData();
     } catch (e) {
@@ -209,15 +235,6 @@ class ReportController extends GetxController {
     } finally {
       isSubmitting.value = false;
       Get.offNamed(Routes.NAVBAR);
-      Get.delete<ReportController>();
     }
-  }
-
-  @override
-  void onClose() {
-    addressController.dispose();
-    nameController.dispose();
-    dateController.dispose();
-    super.onClose();
   }
 }

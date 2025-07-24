@@ -3,10 +3,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../../data/Service/db_helper.dart';
 import '../../../data/models/profile_model.dart';
-import '../../../routes/app_pages.dart';
 
 class AuthController extends GetxController {
-  final db = DatabaseHelper();
+  final db = DatabaseHelper.instance;
   var currentUser = Rxn<ProfileModel>();
 
   final fullname = TextEditingController();
@@ -25,18 +24,18 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> register() async {
+  Future<bool> register() async {
     final existingUsers = await db.getProfiles();
     if (existingUsers.isNotEmpty) {
-      // Hindari pendaftaran dobel
-      return;
+      return false;
     }
+
     if (!isValidEmail(email.text)) {
       Get.snackbar(
         "Email Tidak Valid",
         "Gunakan email seperti user@domain.com",
       );
-      return;
+      return false;
     }
 
     if (!isValidPassword(pass.text)) {
@@ -44,15 +43,14 @@ class AuthController extends GetxController {
         "Password Lemah",
         "Gunakan minimal 8 karakter dengan huruf dan angka",
       );
-      return;
+      return false;
     }
 
     final profiles = await db.getProfiles();
     final exists = profiles.any((p) => p.email == email.text);
-
     if (exists) {
       Get.snackbar("Email Sudah Terdaftar", "Silakan gunakan email lain");
-      return;
+      return false;
     }
 
     final user = ProfileModel(
@@ -62,12 +60,13 @@ class AuthController extends GetxController {
     );
 
     await db.saveProfile(user);
-    await GetStorage().write("current_user", user.toMap());
+    final allUsers = await db.getProfiles();
+    final newUser = allUsers.firstWhere((u) => u.email == user.email);
+    await GetStorage().write("current_user", newUser.toMap());
 
     Get.snackbar("Berhasil", "Registrasi berhasil");
     clearForm();
-    await Future.delayed(Duration(seconds: 2));
-    Get.toNamed(Routes.LOGIN);
+    return true; // Tandai berhasil
   }
 
   Future<bool> login(String emailInput, String passInput) async {

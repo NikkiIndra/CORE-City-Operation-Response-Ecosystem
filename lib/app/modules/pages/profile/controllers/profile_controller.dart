@@ -7,7 +7,7 @@ import '../../authcontroller/authC.dart';
 
 class ProfileController extends GetxController {
   final authC = Get.find<AuthController>();
-  final db = DatabaseHelper();
+  final db = DatabaseHelper.instance;
 
   Future<void> updateUserField(String field, String newValue) async {
     final user = authC.currentUser.value!;
