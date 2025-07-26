@@ -38,14 +38,14 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 2, // Naikkan versi karena ada perubahan schema
+      version: 3, // Naikkan versi karena ada perubahan schema
       onCreate: (db, version) async {
         await db.execute('''
           CREATE TABLE profile (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             fullname TEXT,
             email TEXT,
-            pass TEXT,
+            pass TEXT
           )
         ''');
         await db.execute('''
@@ -176,7 +176,7 @@ class DatabaseHelper {
   // clear all notifications
   Future<void> clearAllNotifications() async {
     final dbClient = await db;
-    await dbClient.delete('notification');
+    await dbClient.delete('notifications');
   }
 
   // delete database

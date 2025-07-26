@@ -70,10 +70,9 @@ class ReportController extends GetxController {
   String namaBulan(int bulan) => _namaBulan[bulan];
 
   final List<String> pilihanLaporan = [
-    'Kebakaran',
     'Penumpukan Sampah',
     'Jalan Berlubang',
-    'Butuh Duit buat jajan',
+    'Lampu jalan Raya Mati',
   ];
   var jenisLaporan = ''.obs;
   Future<void> getLocation() async {

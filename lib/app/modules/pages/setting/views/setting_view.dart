@@ -95,14 +95,14 @@ class SettingView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const _CustomListTile(
-                        title: "Calling",
-                        icon: Icons.phone_outlined,
-                      ),
-                      const _CustomListTile(
-                        title: "People",
-                        icon: Icons.contacts_outlined,
-                      ),
+                      // const _CustomListTile(
+                      //   title: "Calling",
+                      //   icon: Icons.phone_outlined,
+                      // ),
+                      // const _CustomListTile(
+                      //   title: "People",
+                      //   icon: Icons.contacts_outlined,
+                      // ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

@@ -78,7 +78,7 @@ class ReportView extends GetView<ReportController> {
                               readOnly: true,
                               showCursor: false,
                               onTap: () {
-                                if (!controller.gpsSelected.value) {
+                                if (controller.gpsSelected.value) {
                                   controller.showMsg(
                                     'Klik tombol Gps untuk mendapatkan alamat',
                                   );
